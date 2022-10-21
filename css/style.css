@@ -13,14 +13,14 @@ body{
 }
 .description{
     position: absolute;
-    right: 10;
+    right: 0;
     top: 0;
+    text-align: right;
+    text-shadow: 2px 2px 8px #ffffff;
 }
 #container2{
     border: 1px solid var(--black);
     position: relative;
-    width: calc(100 / 5);
-    display: flex;
 }
 .btn1{
     position: absolute;
