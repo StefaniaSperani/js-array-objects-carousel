@@ -11,7 +11,11 @@ body{
 #container{
     border: 1px solid var(--black);
 }
-
+.description{
+    position: absolute;
+    right: 10;
+    top: 0;
+}
 #container2{
     border: 1px solid var(--black);
     position: relative;
@@ -21,8 +25,15 @@ body{
 .btn1{
     position: absolute;
     left: 0;
+    bottom: 0;
 }
 .btn2{
     position: absolute;
     right: 0;
+    bottom: 0;
 }
+
+/* #img-description{
+    position: absolute;
+    right: 0;
+    top: 0; */
