@@ -1,5 +1,13 @@
 /* COMMON */
 
 :root{
-    
+    --bg-color: rgb(108, 150, 197);
+    --black: #000000;
+}
+
+body{
+    background-color: var(--bg-color);
+}
+#container{
+    border: 1px solid var(--black);
 }
