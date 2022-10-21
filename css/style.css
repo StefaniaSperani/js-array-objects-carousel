@@ -11,3 +11,18 @@ body{
 #container{
     border: 1px solid var(--black);
 }
+
+#container2{
+    border: 1px solid var(--black);
+    position: relative;
+    width: calc(100 / 5);
+    display: flex;
+}
+.btn1{
+    position: absolute;
+    left: 0;
+}
+.btn2{
+    position: absolute;
+    right: 0;
+}
