@@ -58,27 +58,13 @@ const images = [
 function printCarousel() {
     //estraggo il container dal DOM
     const container = document.getElementById('container');
-        //e creo un div con la classe, che metterò al suo interno
-        const div = document.createElement('div');
-        div.className = 'position-relative';
-    //ora ciclo gli oggetti che sono presenti nell'array images
-    for (let i = 0; i < images.length; i++) {
-        const content = images[i];
-        //e chiamo la funzione che stamperà il contenuto dell'array
-        //funzione riga76
-        // POICHè mi serve prendere il valore di ritorno della funzione printCarousel
-        //mi creo una variabile
-        const carousel = printImage(content);
-        div.innerHTML += carousel;
-    }
-    container.appendChild(div);
-
+    container.innerHTML = printImage();
 }
 printCarousel()
 
 //creo la funzione che stamperà dentro il container principale
 //i contenuti (img, testo)
-function printImage(content) {
+function printImage() {
     //creo la variabile che andrà a stampare il div con i contenuti
     const carouselHtml = `
     <div class="position-relative">
