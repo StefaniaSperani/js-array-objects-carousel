@@ -37,12 +37,12 @@ body{
     padding: 0;
 }
 
-.btn1{
+#btn1{
     position: absolute;
     left: 0;
     bottom: 0;
 }
-.btn2{
+#btn2{
     position: absolute;
     right: 0;
     bottom: 0;

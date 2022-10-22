@@ -10,15 +10,15 @@ Creare un carosello come nella foto allegata.
 Milestone 0:
 x Come sempre focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l'immagine grande in modo da poter stilare lo slider.
 Milestone 1:
-Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
+x Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
 Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 Milestone 2:
-Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, 
+x Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, 
 la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
 BONUS 1:
 Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
 BONUS 2:
-Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
+x Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
 BONUS 3:
 Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
 */
@@ -53,14 +53,9 @@ const images = [
     },
 ];
 
-
-//creo una funzione che crei il div principale dove  ci sarà l'immagine
-function printCarousel() {
-    //estraggo il container dal DOM
-    const container = document.getElementById('container');
-    container.innerHTML = printImage();
-}
-printCarousel()
+const btnLeft = document.getElementById('btn1');
+const btnRight = document.getElementById('btn2');
+let index = 0;
 
 //creo la funzione che stamperà dentro il container principale
 //i contenuti (img, testo)
@@ -68,17 +63,36 @@ function printImage() {
     //creo la variabile che andrà a stampare il div con i contenuti
     const carouselHtml = `
     <div class="position-relative">
-        <img src=" ${images[0].url}" alt="${images[0].title}" class="img-fluid">
+        <img src=" ${images[index].url}" alt="${images[index].title}" class="img-fluid">
         <div class="description w-75 p-3">
-            <h2>${images[0].title}</h2>
-            <p>${images[0].description}</p>
+            <h2>${images[index].title}</h2>
+            <p>${images[index].description}</p>
         </div>
     </div>
     `; //metto le variabili key+value dove andranno le informazioni dinamiche
+
     //ora per fare in modo che la funzione printCarousel SAPPIA cosa stampare
     //devo inserire il return di carousel
     return carouselHtml;
 }
+//estraggo il container dal DOM
+const container = document.getElementById('container');
+container.innerHTML = printImage();
 
+//imposto un timer per far scorrere automaticamente le slide
+setInterval(sliderNext, 5000);
+//e subito dopo creo la funzione che farà scorrere le slide
+function sliderNext(){
+    index++;
+    if(index > 4){
+        index = 0;
+    }
+    container.innerHTML = printImage();
+    // console.log(index);
+    // console.log(printImage());
+}
+btnRight.addEventListener('click', sliderNext);
+
+const thumbnail = document.getElementsByClassName('imageThumb');
 
 
