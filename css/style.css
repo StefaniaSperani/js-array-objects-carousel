@@ -24,13 +24,15 @@ body{
     text-shadow: 2px 2px 8px #ffffff;
 }
 #container2{
-    /* border: 1px solid var(--black); */
     position: relative;
 }
 #container2 img{
     width: 100%;
     height: 150px;
     object-fit: cover;
+}
+#container img:hover{
+    opacity: 0.8;
 }
 
 #container2 .col{
@@ -48,8 +50,9 @@ body{
     bottom: 0;
 }
 .imageThumb{
-    background-color: blue;
+    cursor: pointer;
 }
+
 .slider{
     border: 1px solid var(--black);
 }

@@ -83,16 +83,32 @@ container.innerHTML = printImage();
 setInterval(sliderNext, 5000);
 //e subito dopo creo la funzione che farà scorrere le slide
 function sliderNext(){
-    index++;
-    if(index > 4){
-        index = 0;
+    index++; //incremento l'index, che al momento ho settato a 0
+    if(index > images.length -1){ //SE l'index è maggiore di 4(index totale dell'array)
+        index = 0; //setto l'index a 0
     }
-    container.innerHTML = printImage();
+    //altrimenti stampo nel DOM
+    container.innerHTML = printImage(); //e stampo nel DOM tramite la funzione
     // console.log(index);
     // console.log(printImage());
 }
 btnRight.addEventListener('click', sliderNext);
-
+// ora creo la funzione per tornare indietro
+function sliderPre(){
+    index--; //decremento l'index che è sempre a 0 come l'altro
+    if(index < 0){ //SE l'index è minore di 0
+        index = images.length -1; //allora l'index sarà la length dell'array -1
+    }
+    console.log(index)
+    container.innerHTML = printImage(); //e stampo nel DOM tramite la funzione
+}
+btnLeft.addEventListener('click', sliderPre);
+//ora ho bisogno di estrarre le thumbs dall'html
 const thumbnail = document.getElementsByClassName('imageThumb');
-
+//e creare una funzione che al click sulla thumb visualizzi l'immaggine
+function clickOnThumb(){
+    console.log('thumb');
+    
+}
+thumbnail[index].addEventListener('click', clickOnThumb);
 
