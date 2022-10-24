@@ -80,7 +80,7 @@ const container = document.getElementById('container');
 container.innerHTML = printImage();
 
 //imposto un timer per far scorrere automaticamente le slide
-setInterval(sliderNext, 5000);
+const sliderInterval = setInterval(sliderNext, 5000);
 //e subito dopo creo la funzione che farà scorrere le slide
 function sliderNext(){
     index++; //incremento l'index, che al momento ho settato a 0
@@ -112,3 +112,10 @@ function clickOnThumb(){
 }
 thumbnail[index].addEventListener('click', clickOnThumb);
 
+const btnStop = document.getElementById('btn3');
+function stop(){
+    console.log('sono stop')
+    clearInterval(sliderInterval);
+    sliderInterval = 0;
+}
+btnStop.addEventListener('click', stop);
